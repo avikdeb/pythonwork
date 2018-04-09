@@ -4,15 +4,15 @@ from email.mime.multipart import MIMEMultipart
 
 fromaddr = "avikdeb.select@gmail.com"
 # Use actual password - Not shown for security
-password = "XXXXXXXXXXXXXXXX"
-toaddr = "avikdeb@gmail.com"
+password = "XXXXXXXXXX"
+toaddr = "gurinder1brar@gmail.com"
 
 msg = MIMEMultipart()
 msg['From'] = fromaddr
 msg['To'] = toaddr
 msg['Subject'] = "Test Email from Python3"
 
-body = "This is a test e-mail."
+body = "This is a test e-mail - For Gurinder!"
 msg.attach(MIMEText(body, 'plain'))
 
 try:
