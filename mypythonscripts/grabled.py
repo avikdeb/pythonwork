@@ -1,7 +1,7 @@
-"""This module extract the following messages -
+"""This module extract the following messages from below hashed strings-
 a) !XeXgXaXsXsXeXmX XtXeXrXcXeXsX XeXhXtX XmXaX XI
 b) IXXX aXXmX aXXXnXoXXXXXtXhXeXXXXrX sXXXXeXcXXXrXeXt mXXeXsXXXsXaXXXXXXgXeX!XX
-(Problem 1.)
+(Problem 1)
 """
 
 # Problem - a
