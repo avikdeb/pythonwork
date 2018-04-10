@@ -66,4 +66,7 @@ if __name__ == "__main__":
     print(email_id)
     message_body = message_selector("wishes.txt") + "\n \n - Python Coding Team" + "  (Email: avikdeb@gmail.com)"
     image_filename = image_selector(1, 12)
-    send_bday_email(email_id, message_body, image_filename)
+
+    #Checks if valid email-id exists
+    if email_id != "" and email_id != None:
+        send_bday_email(email_id, message_body, image_filename)
