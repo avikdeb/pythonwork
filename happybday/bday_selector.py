@@ -6,7 +6,6 @@ def get_emailid_by_date(filepath, today):
 
     select_email = ""
     today_dd_mm = today.strftime('%d-%b')
-    print(today_dd_mm)
 
     workbook = xlrd.open_workbook(filepath)
     worksheet = workbook.sheet_by_index(0)
