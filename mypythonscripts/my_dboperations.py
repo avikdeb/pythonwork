@@ -1,6 +1,6 @@
 import mysql.connector
 
-# User choice and input functions
+# User choice and input functions - display in console
 def print_choice():
     print("Select Operation:")
     print("[S] SELECT")
