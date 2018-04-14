@@ -38,3 +38,4 @@ e.g. C:\sqlite3
 
 3. Add C:\sqlite3 in PATH environment variable
 4. Open command prompt (or power shell window) and type: sqlite3 [hit return]. This will open sqlite prompt. To exit type .exit [hit return]
+5. A very well written article - http://sebastianraschka.com/Articles/2014_sqlite_in_python_tutorial.html
