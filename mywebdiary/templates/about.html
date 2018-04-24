@@ -5,7 +5,9 @@
    {% block content %}
    <div class="about">
      <h1>About me</h1>
-     <p>This is a portfolio site about anything that can be put in a portfolio. This is Gurinder.</p>
+       {% if user %}
+     <p>This is a portfolio site about anything that can be put in a portfolio. This is {{ user.username }}.</p>
+       {% endif %}
    </div>
  {% endblock %}
   </body>

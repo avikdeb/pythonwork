@@ -1,0 +1,41 @@
+---------------------------------
+Environment Setup Document
+
+Autor: Avik Deb
+Email: avikdeb@gmail.com
+
+Version: 1.0
+Date: 14 April, 2018
+
+---------------------------------
+
+1. Install Python 3 and JetBrain's PyCharm IDE. Install Sublibe Text3 Editor for quick scripting works.
+
+2. Code Delivery: GitHub Repository
+------------------------------------
+
+https://github.com/avikdeb/pythonwork
+There are two branches currently available for development:
+i) feature_gb - Maintained by the contributor Gurinder
+ii) feature_ad - Maintained by the contributor TrainingPort (Avik Deb)
+Works are integrated in the branch feature_integration. Master branch is restricted - only the production code is kept there.
+
+If you wish to contribute, please request another feature branch - Email to: avikdeb@gmail.com.
+
+3. Setting up SQLite3 databse to Work with Python 3
+----------------------------------------------------
+
+i) Download the following packages from https://www.sqlite.org/download.html
+Pre-complied binaries for Windows - sqlite-dll-win64-x64-3230100.zip and sqlite-tools-win32-x86-3230100.zip
+ii) Create a folder C:\sqlite3 and extract the contents there - keep only the binaries to make a clean directory structure:
+
+e.g. C:\sqlite3
+			|______ sqldiff
+			|______ sqlite3.def
+			|______ sqlite3.dll
+			|______ sqlite3
+			|______  sqlite3_analyzer
+
+3. Add C:\sqlite3 in PATH environment variable
+4. Open command prompt (or power shell window) and type: sqlite3 [hit return]. This will open sqlite prompt. To exit type .exit [hit return]
+5. A very well written article - http://sebastianraschka.com/Articles/2014_sqlite_in_python_tutorial.html
