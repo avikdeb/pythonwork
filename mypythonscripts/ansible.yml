@@ -1,0 +1,20 @@
+---
+-name: Install packges for linux
+# hosts: localhost
+# remote_user: vagrant
+# become: Yes
+
+tasks:
+-name: Install epl-release repository
+yum: name=epl-release state=present
+-name: Install python bindings for SELinux
+yum: name={{item}} state=present
+with-items: -libselinux-python -libsemanage-python
+-name: Test to see if SELinux is running
+command: getenforce
+register: sestatus
+changed_when: false
+-name: Install apache
+yum: name=httpd status=present
+-name: Restart apache
+service: name=httpd state=start enabled=yes
