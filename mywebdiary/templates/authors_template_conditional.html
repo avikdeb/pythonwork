@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <h1>This is the list of authors (with conditional)</h1>
+    <ul>
+        {% for a in authors %}
+            {% if a['id'] > 2 %}
+                <li>{{ a['id'] }}: {{ a['name'] }} (country: {{ a['country'] }})</li>
+            {% else %}
+                <li><b><font color="red">{{ a['id'] }}: {{ a['name' ]}} </font></b> (country: {{ a['country'] }})</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</html>
