@@ -1,0 +1,15 @@
+from datetime import datetime
+#Enter their name and their age. Print out a message addressed to them that tells them the year that they will turn 100 years old.
+print ("Enter you name")
+name = input(">")
+e_age = input("Enter you age>")
+current_year = int(datetime.today().strftime('%Y'))
+print ("The current year today is >", current_year)
+
+age_diff = 100 - int(e_age)
+print ("The year", name ," will turn 100 years is " , current_year + age_diff)
+
+repeat_num = int(input("Enter the number of times to repeat the message >"))
+
+for i in range(1,repeat_num):
+    print("The year", name, " will turn 100 years is ", current_year + age_diff)

@@ -1,0 +1,11 @@
+#Check Odd even
+num  = int(input("Enter a number >"))
+
+mod_result = num%2
+
+if num%4 == 0:
+    print ("The number" , num , "is a multiple of 4")
+elif mod_result == 1:
+    print ("The number", num , "is odd")
+elif mod_result == 0:
+    print ("The number" , num , "is odd")
