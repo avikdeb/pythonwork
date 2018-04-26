@@ -1,7 +1,7 @@
 from flask import Flask
 from flask import Flask, flash, redirect, render_template, request, session, abort, g
 import os, sqlite3
-from managebill.applogic import login_manager
+from managebill.applogic import login_manager, user_manager
 
 app = Flask(__name__)
 
@@ -52,6 +52,16 @@ def newuser():
 @app.route('/resetpass')
 def resetpass():
     return render_template('resetpass.html')
+
+
+@app.route('/doresetpass', methods=['POST'])
+def do_resetpass():
+    username = request.form['username']
+    newpassword = request.form['newpassword']
+    if user_manager.reset_password(username, newpassword):
+        return render_template('resetpass_result.html')
+    else:
+        return render_template('error.html')
 
 
 if __name__ == "__main__":
