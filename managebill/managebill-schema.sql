@@ -3,7 +3,7 @@
 
 drop table if exists user;
 create table user (
-    userid integer primary key autoincrement,
+    id integer primary key autoincrement,
     username text not null,
     password text not null,
     firstname text not null,
@@ -15,14 +15,14 @@ create table user (
 
 drop table if exists paymentstatus;
 create table paymentstatus (
-    paymentstatusid integer primary key autoincrement,
-    paymentstatus text not null
+    id integer primary key autoincrement,
+    status text not null
 );
 
 drop table if exists useraudit;
 create table useraudit (
-    userauditid integer primary key autoincrement,
-    user_id integer,
+    id integer primary key autoincrement,
+    userid integer,
     createdby integer not null,
     createdon text not null,
     updatedby integer not null,
@@ -31,13 +31,13 @@ create table useraudit (
 
 drop table if exists melectricitybill;
 create table melectricitybill (
-    melectricitybillid integer primary key autoincrement,
-    billfromdate text not null,
-    billtodate text not null,
+    id integer primary key autoincrement,
+    fromdate text not null,
+    todate text not null,
     unitsconsumed integer not null,
     billamount real not null,
-    billamountpostduedate real not null,
-    paymentduedate text not null,
-    paymentlastdate text not null,
-    paymentstatus_id integer
+    amountpostduedate real not null,
+    duedate text not null,
+    lastdate text not null,
+    paymentstatusid integer
 );
