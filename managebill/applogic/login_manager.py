@@ -21,6 +21,6 @@ def get_user_by_username(user, passwd):
     user_sql = "SELECT * FROM user WHERE username LIKE '"+user+"'"+" AND password like '"+passwd+"';"
     print("[Login SQL][login_manager - get_user_by_username]" + " " + user_sql)
     cursor = connect_db().execute(user_sql)
-    user = [dict(userid=row[0], username=row[1], password=row[2], firstname=row[3], lastname=row[4],  ) for row in cursor.fetchall()]
+    user = [dict(id=row[0], username=row[1], password=row[2], firstname=row[3], lastname=row[4],  ) for row in cursor.fetchall()]
     print(user)
     return user
