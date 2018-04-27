@@ -58,11 +58,27 @@ def resetpass():
 def do_resetpass():
     username = request.form['username']
     newpassword = request.form['newpassword']
-    if user_manager.reset_password(username, newpassword):
+    if user_manager.reset_password(newpassword, username):
         return render_template('resetpass_result.html')
     else:
         return render_template('error.html')
 
+
+@app.route('/createuser', methods=['POST'])
+def createuser():
+    user_dict = {
+        "username" : request.form['username'],
+        "password" : request.form['password'],
+        "firstname" : request.form['firstname'],
+        "lastname" : request.form['lastname'],
+        "email" : request.form['email'],
+        "mobile" : request.form['mobile']
+    }
+
+    if user_manager.create_user(user_dict):
+        return render_template('signup_result.html')
+    else:
+        return render_template('error.html')
 
 if __name__ == "__main__":
     app.secret_key = os.urandom(12)
