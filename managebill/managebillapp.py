@@ -76,7 +76,7 @@ def createuser():
     }
 
     if user_manager.create_user(user_dict):
-        return render_template('signup_result.html')
+        return render_template('signup_result.html', user = user_dict)
     else:
         return render_template('error.html')
 
