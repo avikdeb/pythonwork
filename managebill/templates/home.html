@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html>
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+</style>
+</head>
   <body>
   {% extends "layout.html" %}
   {% block content %}
@@ -8,7 +16,7 @@
     <h1>My Billing Dashboard</h1>
     <br>
     <p><font color="blue"><b>Current Billing Summary</b></font></p>
-    <table border="1">
+    <table style="width:100%">
       <tr>
         <td><b>SL</b></td>
         <td><b>Bill Period</b></td>
@@ -37,9 +45,9 @@
 
     <br>
     <p><font><b>Billing Quick Search</b></font></p>
-    <table border="1">
+    <table>
       <tr>
-        <td>Search By Month</td>
+        <td>Search By Month: </td>
         <td>
             <select>
                 <option value="January">January</option>
