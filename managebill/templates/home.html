@@ -7,7 +7,7 @@
   <div class="home">
     <h1>My Billing Dashboard</h1>
     <br>
-    <p><font color="blue"><b>Billing Summary Table</b></font></p>
+    <p><font color="blue"><b>Current Billing Summary</b></font></p>
     <table border="1">
       <tr>
         <td><b>SL</b></td>
@@ -36,60 +36,28 @@
     </table>
 
     <br>
-    <p><font color="blue"><b>Payment History Table</b></font></p>
+    <p><font><b>Billing Quick Search</b></font></p>
     <table border="1">
       <tr>
-        <td><b>SL</b></td>
-        <td><b>Bill Period</b></td>
-        <td><b>Bill From</b></td>
-        <td><b>Bill To</b></td>
-        <td><b>Unit Consumed</b></td>
-        <td><b>Payment Due Date</b></td>
-        <td><b>Payment Last Date</b></td>
-        <td><b>Payment Status</b></td>
-        <td><b>Download File</b></td>
-        <td><b>Scanned Bill</b></td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td align="center">Jan-Mar</td>
-        <td align="center">15-01-2018</td>
-        <td align="center">14-03-2018</td>
-        <td align="center">128</td>
-        <td align="center">28-03-2018</td>
-        <td align="center">04-04-2018</td>
-        <td align="center">Due</td>
-        <td align="center">Not Available</td>
-        <td align="center">Not Available</td>
-      </tr>
-    </table>
+        <td>Search By Month</td>
+        <td>
+            <select>
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+            </select>
+        </td>
 
-    <br>
-    <p><font color="blue"><b>Current Payment Share Table</b></font></p>
-    <table border="1">
-      <tr>
-        <td><b>SL</b></td>
-        <td><b>Bill Period</b></td>
-        <td><b>Bill From</b></td>
-        <td><b>Bill To</b></td>
-        <td><b>Unit Consumed</b></td>
-        <td><b>Payment Due Date</b></td>
-        <td><b>Payment Last Date</b></td>
-        <td><b>Payment Status</b></td>
-        <td><b>Download File</b></td>
-        <td><b>Scanned Bill</b></td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td align="center">Jan-Mar</td>
-        <td align="center">15-01-2018</td>
-        <td align="center">14-03-2018</td>
-        <td align="center">128</td>
-        <td align="center">28-03-2018</td>
-        <td align="center">04-04-2018</td>
-        <td align="center">Due</td>
-        <td align="center">Not Available</td>
-        <td align="center">Not Available</td>
+        <td><input type="submit" value="search" name="search"></td>
       </tr>
     </table>
 
