@@ -3,11 +3,98 @@
   <body>
   {% extends "layout.html" %}
   {% block content %}
-  <div class="home">
-    <h1>A Python product</h1>
-    <p>Logged-in User: {{ user.username }}</p>
-  </div>
-{% endblock %}
 
+  <div class="home">
+    <h1>My Billing Dashboard</h1>
+    <br>
+    <p><font color="blue"><b>Billing Summary Table</b></font></p>
+    <table border="1">
+      <tr>
+        <td><b>SL</b></td>
+        <td><b>Bill Period</b></td>
+        <td><b>Bill From</b></td>
+        <td><b>Bill To</b></td>
+        <td><b>Unit Consumed</b></td>
+        <td><b>Payment Due Date</b></td>
+        <td><b>Payment Last Date</b></td>
+        <td><b>Payment Status</b></td>
+        <td><b>Download File</b></td>
+        <td><b>Scanned Bill</b></td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td align="center">Jan-Mar</td>
+        <td align="center">15-01-2018</td>
+        <td align="center">14-03-2018</td>
+        <td align="center">128</td>
+        <td align="center">28-03-2018</td>
+        <td align="center">04-04-2018</td>
+        <td align="center">Due</td>
+        <td align="center">Not Available</td>
+        <td align="center">Not Available</td>
+      </tr>
+    </table>
+
+    <br>
+    <p><font color="blue"><b>Payment History Table</b></font></p>
+    <table border="1">
+      <tr>
+        <td><b>SL</b></td>
+        <td><b>Bill Period</b></td>
+        <td><b>Bill From</b></td>
+        <td><b>Bill To</b></td>
+        <td><b>Unit Consumed</b></td>
+        <td><b>Payment Due Date</b></td>
+        <td><b>Payment Last Date</b></td>
+        <td><b>Payment Status</b></td>
+        <td><b>Download File</b></td>
+        <td><b>Scanned Bill</b></td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td align="center">Jan-Mar</td>
+        <td align="center">15-01-2018</td>
+        <td align="center">14-03-2018</td>
+        <td align="center">128</td>
+        <td align="center">28-03-2018</td>
+        <td align="center">04-04-2018</td>
+        <td align="center">Due</td>
+        <td align="center">Not Available</td>
+        <td align="center">Not Available</td>
+      </tr>
+    </table>
+
+    <br>
+    <p><font color="blue"><b>Current Payment Share Table</b></font></p>
+    <table border="1">
+      <tr>
+        <td><b>SL</b></td>
+        <td><b>Bill Period</b></td>
+        <td><b>Bill From</b></td>
+        <td><b>Bill To</b></td>
+        <td><b>Unit Consumed</b></td>
+        <td><b>Payment Due Date</b></td>
+        <td><b>Payment Last Date</b></td>
+        <td><b>Payment Status</b></td>
+        <td><b>Download File</b></td>
+        <td><b>Scanned Bill</b></td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td align="center">Jan-Mar</td>
+        <td align="center">15-01-2018</td>
+        <td align="center">14-03-2018</td>
+        <td align="center">128</td>
+        <td align="center">28-03-2018</td>
+        <td align="center">04-04-2018</td>
+        <td align="center">Due</td>
+        <td align="center">Not Available</td>
+        <td align="center">Not Available</td>
+      </tr>
+    </table>
+
+  </div>
+
+{% endblock %}
   </body>
 </html>
