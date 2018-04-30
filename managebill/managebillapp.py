@@ -1,6 +1,9 @@
 from flask import Flask
 from flask import Flask, flash, redirect, render_template, request, session, abort, g
 import os, sqlite3
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 from managebill.applogic import login_manager, user_manager
 
 app = Flask(__name__)
@@ -58,10 +61,37 @@ def resetpass():
 def do_resetpass():
     username = request.form['username']
     newpassword = request.form['newpassword']
-    if user_manager.reset_password(newpassword, username):
-        return render_template('resetpass_result.html')
-    else:
-        return render_template('error.html')
+    email = request.form['email']
+    if user_manager.reset_password(username,newpassword):
+        #return render_template('resetpass_result.html')
+
+        fromaddr = "avikdeb.select@gmail.com"
+        # Use actual password - Not shown for security
+        password = "welcome2gmail"
+        toaddr = "gurinder1brar@gmail.com"
+
+        msg = MIMEMultipart()
+        msg['From'] = fromaddr
+        msg['To'] = email
+        msg['Subject'] = "Python Password changed !!"
+
+        body = "Password is reset to "
+        #msg.add_header(MIMEText(body,newpassword))
+
+        try:
+            server = smtplib.SMTP('smtp.gmail.com', 587)
+            server.starttls()
+            server.login(fromaddr, password)
+            text = msg.as_string()
+            server.sendmail(fromaddr, toaddr, text)
+            server.quit()
+            print("[SUCCESS] Email sent")
+            return render_template('resetpass_result.html')
+        except:
+            print("[ERROR] Email sent failed")
+
+        else:
+            return render_template('error.html')
 
 
 @app.route('/createuser', methods=['POST'])
