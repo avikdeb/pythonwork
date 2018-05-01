@@ -68,6 +68,34 @@ table, th, td {
         <td><input type="submit" value="Click to Search" name="search" class="btn btn-primary btn-large btn-block"></td>
       </tr>
     </table>
+    <br>
+    <p><font color="blue"><b>Quick Analytics</b></font></p>
+    <table>
+      <tr>
+        <td>Search By Topics: </td>
+        <td>
+            <select>
+                <option value="January">Monthwise consumption</option>
+                <option value="February">Consumption Trend Projection</option>
+            </select>
+        </td>
+        <td><input type="submit" value="Click to Search" name="search" class="btn btn-primary btn-large btn-block"></td>
+      </tr>
+    </table>
+    <br>
+    <p><font><b>Manage Tasks</b></font></p>
+    <table>
+      <tr>
+        <form action="/addbill" method="post">
+        <td>Create Bill: </td>
+        <td><input type="submit" value="Click to Create Bill" name="createbill" class="btn btn-primary btn-large btn-block"></td>
+        </form>
+      </tr>
+      <tr>
+        <td>Edit Profile: </td>
+        <td><input type="submit" value="Click to Edit Profile" name="editprofile" class="btn btn-primary btn-large btn-block"></td>
+      </tr>
+    </table>
   </div>
 
 {% endblock %}
