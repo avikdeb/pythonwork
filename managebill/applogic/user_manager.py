@@ -19,8 +19,8 @@ def create_user(user_dict):
     is_created = False
     select_username = user_dict.get('username')
     select_password = user_dict.get('password')
-    select_firstname = username = user_dict.get('firstname')
-    select_lastname = username = user_dict.get('lastname')
+    select_firstname = user_dict.get('firstname')
+    select_lastname = user_dict.get('lastname')
     select_email = user_dict.get('email')
     select_mobile = user_dict.get('mobile')
     select_adminflag = "0"
