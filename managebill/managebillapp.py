@@ -1,10 +1,8 @@
 from flask import Flask
 from flask import Flask, flash, redirect, render_template, request, session, abort, g
-import os, sqlite3
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
 from managebill.applogic import login_manager, user_manager, email_manager
+
+import os, sqlite3
 
 app = Flask(__name__)
 
