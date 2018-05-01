@@ -95,6 +95,11 @@ def createuser():
         return render_template('error.html')
 
 
+@app.route('/addbill')
+def addbill():
+    return render_template('addbill.html')
+
+
 if __name__ == "__main__":
     app.secret_key = os.urandom(12)
     app.run(debug=True)
