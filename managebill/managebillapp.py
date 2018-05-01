@@ -4,7 +4,7 @@ import os, sqlite3
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-from managebill.applogic import login_manager, user_manager
+from managebill.applogic import login_manager, user_manager, email_manager
 
 app = Flask(__name__)
 
@@ -19,7 +19,7 @@ def home():
 
 
 @app.route('/login', methods=['POST'])
-def do_login():
+def login():
 
     form_username = request.form['username']
     form_password = request.form['password']
@@ -61,37 +61,23 @@ def resetpass():
 def do_resetpass():
     username = request.form['username']
     newpassword = request.form['newpassword']
-    email = request.form['email']
-    if user_manager.reset_password(username,newpassword):
-        #return render_template('resetpass_result.html')
+    user_emailid = request.form['email']
+    if user_manager.reset_password(username, newpassword):
 
-        fromaddr = "avikdeb.select@gmail.com"
-        # Use actual password - Not shown for security
-        password = "xxxxxxxxxxx"
-        toaddr = "xxxxxx@gmail.com"
+        success_message = "Your password has been reset successfully. Please login to the application now."
+        email_manager.send_email(user_emailid, success_message)
+        return render_template('resetpass_result.html')
+    else:
+        return render_template('error.html')
 
-        msg = MIMEMultipart()
-        msg['From'] = fromaddr
-        msg['To'] = email
-        msg['Subject'] = "Python Password changed !!"
 
-        body = "Password is reset to "
-        #msg.add_header(MIMEText(body,newpassword))
-
-        try:
-            server = smtplib.SMTP('smtp.gmail.com', 587)
-            server.starttls()
-            server.login(fromaddr, password)
-            text = msg.as_string()
-            server.sendmail(fromaddr, toaddr, text)
-            server.quit()
-            print("[SUCCESS] Email sent")
-            return render_template('resetpass_result.html')
-        except:
-            print("[ERROR] Email sent failed")
-
-        else:
-            return render_template('error.html')
+@app.route('/dohome')
+def dohome():
+    if session.get('logged_in'):
+        return render_template('home.html')
+    else:
+        session['logged_in'] = False
+        return render_template('login.html')
 
 
 @app.route('/createuser', methods=['POST'])
@@ -109,6 +95,7 @@ def createuser():
         return render_template('signup_result.html', user = user_dict)
     else:
         return render_template('error.html')
+
 
 if __name__ == "__main__":
     app.secret_key = os.urandom(12)
