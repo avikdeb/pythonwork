@@ -18,7 +18,8 @@
 
 <link rel="stylesheet" href="/static/css/style.css" type="text/css">
 
-<form action="/addbill" method="post">
+<form action="/createbill" method="post">
+	<input type="hidden" name="username" value="">
     <div class="login">
 		<div class="login-screen">
 			<div class="app-title">
@@ -38,7 +39,7 @@
 				</div>
 
                 <div class="control-group">
-				<input type="text" class="login-field" value="" placeholder="units consumed" name="unitscnsumed">
+				<input type="text" class="login-field" value="" placeholder="units consumed" name="unitsconsumed">
 				<label class="login-field-icon fui-user" ></label>
 				</div>
 
