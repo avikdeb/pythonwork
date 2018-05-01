@@ -67,8 +67,8 @@ def do_resetpass():
 
         fromaddr = "avikdeb.select@gmail.com"
         # Use actual password - Not shown for security
-        password = "welcome2gmail"
-        toaddr = "gurinder1brar@gmail.com"
+        password = "xxxxxxxxxxx"
+        toaddr = "xxxxxx@gmail.com"
 
         msg = MIMEMultipart()
         msg['From'] = fromaddr
