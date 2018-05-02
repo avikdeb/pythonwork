@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import Flask, flash, redirect, render_template, request, session, abort, g
-from managebill.applogic import login_manager, user_manager, email_manager
+from managebill.applogic import login_manager, user_manager, email_manager, bill_manager
 
 import os, sqlite3
 
@@ -21,18 +21,17 @@ def login():
 
     form_username = request.form['username']
     form_password = request.form['password']
-
-    # Calling the validator in login_manager script - username/password from the form is passed for validation
-    # Sets the logged_in as true in session
     if login_manager.validate_login(form_username, form_password):
         session['logged_in'] = True
     else:
         flash('wrong password!')
+
     return home()
 
 
 @app.route('/logout')
 def logout():
+
     if session.get('logged_in'):
         session['logged_in'] = False
         return render_template('login.html')
@@ -77,6 +76,15 @@ def dohome():
         session['logged_in'] = False
         return render_template('login.html')
 
+@app.route('/gohome', methods=['POST'])
+def gohome():
+    if session.get('logged_in'):
+        username = request.form['username']
+        user = { "username": username}
+        return render_template('home.html', user=user)
+    else:
+        session['logged_in'] = False
+        return render_template('login.html')
 
 @app.route('/createuser', methods=['POST'])
 def createuser():
@@ -95,9 +103,33 @@ def createuser():
         return render_template('error.html')
 
 
-@app.route('/addbill')
+@app.route('/addbill', methods=['GET','POST'])
 def addbill():
-    return render_template('addbill.html')
+    puser={ "username": request.form['username']}
+    print(request.form['username'])
+    print(puser)
+    return render_template('addbill.html', puser=puser)
+
+
+@app.route('/createbill', methods=['POST'])
+def createbill():
+    print("username --> " + request.form['username'])
+    bill_dict = {
+        "username": request.form['username'],
+        "billingmonth": request.form['billingmonth'],
+        "fromdate": request.form['fromdate'],
+        "todate": request.form['todate'],
+        "unitsconsumed": request.form['unitsconsumed'],
+        "amount": request.form['amount'],
+        "amountpostduedate": request.form['amountpostduedate'],
+        "duedate": request.form['duedate'],
+        "lastdate": request.form['lastdate']
+    }
+    print("username --> "+request.form['username'])
+    if bill_manager.create_bill(bill_dict):
+        return render_template('newbill_result.html', newbill=bill_dict)
+    else:
+        return render_template('error.html')
 
 
 if __name__ == "__main__":
