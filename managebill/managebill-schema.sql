@@ -32,6 +32,7 @@ create table useraudit (
 drop table if exists melectricitybill;
 create table melectricitybill (
     id integer primary key autoincrement,
+    billingmonth text not null,
     fromdate text not null,
     todate text not null,
     unitsconsumed integer not null,
