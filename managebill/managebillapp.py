@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import Flask, flash, redirect, render_template, request, session, abort, g, send_file
+from flask import Flask, flash, redirect, render_template, request, session, abort, g, send_file, make_response
 from managebill.applogic import login_manager, user_manager, email_manager, bill_manager, excel_maker
 
 import os, sqlite3
@@ -169,6 +169,36 @@ def download():
         return send_file('C:/pythonwork/managebill/static/download/'+excel_filename+'_2018.xls', attachment_filename=excel_filename+'_2018.xls')
     except Exception as e:
         return str(e)
+
+@app.route("/consumption_plot.png", methods=['GET', 'POST'])
+def consumption_plot():
+    import datetime
+    from io import BytesIO
+    import random
+
+    from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+    from matplotlib.figure import Figure
+    from matplotlib.dates import DateFormatter
+
+    fig=Figure()
+    ax=fig.add_subplot(111)
+    x=[]
+    y=[]
+    now=datetime.datetime.now()
+    delta=datetime.timedelta(days=1)
+    for i in range(10):
+        x.append(now)
+        now+=delta
+        y.append(random.randint(0, 1000))
+    ax.plot_date(x, y, '-')
+    ax.xaxis.set_major_formatter(DateFormatter('%Y-%m-%d'))
+    fig.autofmt_xdate()
+    canvas=FigureCanvas(fig)
+    png_output = BytesIO()
+    canvas.print_png(png_output)
+    response=make_response(png_output.getvalue())
+    response.headers['Content-Type'] = 'image/png'
+    return response
 
 
 if __name__ == "__main__":
