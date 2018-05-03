@@ -67,12 +67,21 @@
     </form>
 
   <br>
-    <form action="gohome" method="post">
+    <form action="create_excel" method="post">
       <input type="hidden" name="username" value="{{ newbill.username }}">
+      <input type="hidden" name="billingmonth" value="{{ newbill.billingmonth }}">
+      <input type="hidden" name="fromdate" value="{{ newbill.fromdate }}">
+      <input type="hidden" name="todate" value="{{ newbill.todate }}">
+      <input type="hidden" name="unitsconsumed" value="{{ newbill.unitsconsumed }}">
+      <input type="hidden" name="amount" value="{{ newbill.amount }}">
+      <input type="hidden" name="amountpostduedate" value="{{ newbill.amountpostduedate }}">
+      <input type="hidden" name="duedate" value="{{ newbill.duedate }}">
+      <input type="hidden" name="lastdate" value="{{ newbill.lastdate }}">
+      <input type="hidden" name="paymentstatus" value="Payment Due">
       <table>
         <tr>
           <td>
-            <input type="submit" value="Generate Excel">
+            <input type="submit" value="Create Excel">
           </td>
         </tr>
       </table>
