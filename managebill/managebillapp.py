@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import Flask, flash, redirect, render_template, request, session, abort, g
+from flask import Flask, flash, redirect, render_template, request, session, abort, g, send_file
 from managebill.applogic import login_manager, user_manager, email_manager, bill_manager, excel_maker
 
 import os, sqlite3
@@ -160,6 +160,15 @@ def create_excel():
 
     excel_maker.generate_excel(request.form['billingmonth'], col_list)
     return render_template('save_excel_result.html', newbill=bill_dict)
+
+
+@app.route('/download', methods=['POST'])
+def download():
+    excel_filename = request.form['filename']
+    try:
+        return send_file('C:/pythonwork/managebill/static/download/'+excel_filename+'_2018.xls', attachment_filename=excel_filename+'_2018.xls')
+    except Exception as e:
+        return str(e)
 
 
 if __name__ == "__main__":
