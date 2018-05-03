@@ -2,7 +2,7 @@ import xlwt
 
 def generate_excel(month, colslist):
 
-    path = "download\\"
+    path = "static\\download\\"
     book = xlwt.Workbook()
     sheet1 = book.add_sheet(month)
 
