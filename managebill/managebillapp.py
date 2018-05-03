@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import Flask, flash, redirect, render_template, request, session, abort, g
-from managebill.applogic import login_manager, user_manager, email_manager, bill_manager
+from managebill.applogic import login_manager, user_manager, email_manager, bill_manager, excel_maker
 
 import os, sqlite3
 
@@ -130,6 +130,36 @@ def createbill():
         return render_template('newbill_result.html', newbill=bill_dict)
     else:
         return render_template('error.html')
+
+@app.route('/create_excel', methods=['POST'])
+def create_excel():
+
+    col_list = [
+        request.form['billingmonth'],
+        request.form['fromdate'],
+        request.form['todate'],
+        request.form['unitsconsumed'],
+        request.form['amount'],
+        request.form['amountpostduedate'],
+        request.form['duedate'],
+        request.form['lastdate'],
+        request.form['paymentstatus']
+    ]
+
+    bill_dict = {
+        "username": request.form['username'],
+        "billingmonth": request.form['billingmonth'],
+        "fromdate": request.form['fromdate'],
+        "todate": request.form['todate'],
+        "unitsconsumed": request.form['unitsconsumed'],
+        "amount": request.form['amount'],
+        "amountpostduedate": request.form['amountpostduedate'],
+        "duedate": request.form['duedate'],
+        "lastdate": request.form['lastdate']
+    }
+
+    excel_maker.generate_excel(request.form['billingmonth'], col_list)
+    return render_template('save_excel_result.html', newbill=bill_dict)
 
 
 if __name__ == "__main__":
