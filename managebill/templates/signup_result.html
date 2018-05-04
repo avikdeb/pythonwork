@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <body>
+
+    <h1>New User Signup Request - <font color="green"><b>SUCCESS!</b></font></h1>
+    <br>
+    <br>
+    <table>
+      <thead><b><u>User Details</u></b></thead>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+
+      <tr>
+        <td>Username</td>
+        <td>{{ user.username }}</td>
+      </tr>
+      <tr>
+        <td>Password</td>
+        <td>{{ user.password }}</td>
+      </tr>
+      <tr>
+        <td>First name</td>
+        <td>{{ user.firstname }}</td>
+      </tr>
+      <tr>
+        <td>Last name</td>
+        <td>{{ user.lastname }}</td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td>{{ user.email }}</td>
+      </tr>
+      <tr>
+        <td>Mobile</td>
+        <td>{{ user.mobile }}</td>
+      </tr>
+    </table>
+    <br>
+    <a href="{{ url_for('home') }}">Login Again</a>
+
+  </body>
+</html>

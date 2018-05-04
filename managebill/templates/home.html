@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/static/css/style.css" type="text/css">
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+</style>
+</head>
+  <body>
+  {% extends "layout.html" %}
+  {% block content %}
+
+  <div class="home">
+      <h1>Billing Dashboard</font></h1>
+    <br>
+    <p><font color="blue"><b>Billing Summary</b></font></p>
+    <table style="width:80%">
+      <tr>
+        <td><b>SL</b></td>
+        <td><b>Bill Month</b></td>
+        <td><b>Bill From</b></td>
+        <td><b>Bill To</b></td>
+        <td><b>Unit Consumed</b></td>
+        <td><b>Amount</b></td>
+        <td><b>Amount Post Due Date</b></td>
+        <td><b>Due Date</b></td>
+        <td><b>Last Date</b></td>
+        <td><b>Payment Status</b></td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td align="center">January</td>
+        <td align="center">15-01-2018</td>
+        <td align="center">14-02-2018</td>
+        <td align="center">200</td>
+        <td align="center">1600</td>
+        <td align="center">1800</td>
+        <td align="center">16-02-2018</td>
+        <td align="center">26-02-2018</td>
+        <td align="center">Payment Due</td>
+      </tr>
+    </table>
+
+    <br>
+    <p><font color="blue"><b>Quick Searches</b></font></p>
+    <table>
+      <tr>
+        <td>Search By Month: </td>
+        <td>
+            <select>
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+            </select>
+        </td>
+        <td><input type="submit" value="Click to Search" name="search" class="btn btn-primary btn-large btn-block"></td>
+      </tr>
+      <tr>
+        <td>Download Excel for Month: </td>
+        <td>
+            <select>
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+            </select>
+        </td>
+        <td><input type="submit" value="Click to Download" name="download" class="btn btn-primary btn-large btn-block"></td>
+      </tr>
+    </table>
+    <br>
+    <p><font color="blue"><b>Quick Analytics</b></font></p>
+    <table>
+      <tr>
+        <td>By Topics: </td>
+        <form action="consumption_plot.png">
+        <td>
+            <select>
+                <option value="January">Monthwise consumption</option>
+                <option value="February">Consumption Trend Projection</option>
+            </select>
+        </td>
+        <td><input type="submit" value="View Analysis" name="analysis" class="btn btn-primary btn-large btn-block"></td>
+        </form>
+      </tr>
+    </table>
+    <br>
+    <p><font color="blue"><b>Manage Tasks</b></font></p>
+    <table>
+      <tr>
+        <form action="/addbill" method="post">
+            <input type="hidden" name="username" value="{{ user.username }}">
+        <td>Create Bill: </td>
+        <td><input type="submit" value="Click to Create Bill" name="createbill" class="btn btn-primary btn-large btn-block"></td>
+        </form>
+      </tr>
+        <tr>
+        <td>Upload Scanned Bill: </td>
+        <td><input type="submit" value="Click to Upload" name="uploadbill" class="btn btn-primary btn-large btn-block"></td>
+      </tr>
+      <tr>
+        <td>Edit Profile: </td>
+        <td><input type="submit" value="Click to Edit Profile" name="editprofile" class="btn btn-primary btn-large btn-block"></td>
+      </tr>
+    </table>
+  </div>
+
+{% endblock %}
+  </body>
+</html>

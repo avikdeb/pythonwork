@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="/static/css/style.css" type="text/css">
+
+
+<form action="/createuser" method="post">
+    <div class="login">
+		<div class="login-screen">
+			<div class="app-title">
+				<h1>Sign-up</h1>
+			</div>
+
+			<div class="login-form">
+				<div class="control-group">
+				<input type="text" class="login-field" value="" placeholder="username" name="username">
+				<label class="login-field-icon fui-user" ></label>
+				</div>
+
+				<div class="control-group">
+				<input type="password" class="login-field" value="" placeholder="password" name="password">
+				<label class="login-field-icon fui-lock" ></label>
+				</div>
+
+                <div class="control-group">
+				<input type="text" class="login-field" value="" placeholder="firstname" name="firstname">
+				<label class="login-field-icon fui-user" ></label>
+				</div>
+
+                <div class="control-group">
+				<input type="text" class="login-field" value="" placeholder="lastname" name="lastname">
+				<label class="login-field-icon fui-user" ></label>
+				</div>
+
+                <div class="control-group">
+				<input type="text" class="login-field" value="" placeholder="email" name="email">
+				<label class="login-field-icon fui-user" ></label>
+				</div>
+
+                <div class="control-group">
+				<input type="text" class="login-field" value="" placeholder="mobile" name="mobile">
+				<label class="login-field-icon fui-user" ></label>
+				</div>
+
+                <input type="submit" value="Save" class="btn btn-primary btn-large btn-block" >
+
+				<br>
+				<a href="{{ url_for('home') }}">Return to Login</a>
+
+			</div>
+		</div>
+	</div>
+
+</form>
+
